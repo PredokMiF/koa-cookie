@@ -10,9 +10,9 @@ function cookie() {
   return (() => {
     var _ref = _asyncToGenerator(function* (context, next) {
       const cookieHeader = context.headers.cookie;
+      context.cookie = {};
       if (cookieHeader) {
         const cookies = cookieHeader.split(';');
-        context.cookie = {};
         cookies.forEach(function (item) {
           const crumbs = item.split('=');
           if (crumbs.length > 1) context.cookie[crumbs[0].trim()] = crumbs[1].trim();
